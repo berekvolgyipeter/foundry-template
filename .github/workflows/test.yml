@@ -1,24 +1,27 @@
-name: CI
+name: Test
 
 on:
   push:
+    branches:
+      - main
+      - release
+      - develop
   pull_request:
   workflow_dispatch:
 
 env:
-  FOUNDRY_PROFILE: ci
+  FOUNDRY_PROFILE: default
 
 jobs:
-  check:
+  test:
     strategy:
       fail-fast: true
 
     name: Foundry project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
@@ -45,5 +48,5 @@ jobs:
 
       - name: Run Forge tests
         run: |
-          forge test -vvv
+          make test
         id: test
