@@ -2,11 +2,11 @@
 solc = "0.8.27"
 src = "src"
 out = "out"
-libs = ["dependencies"]
-remappings = ["forge-std/=dependencies/forge-std-1.9.2/src/"]
+libs = ["lib"]
+remappings = ["forge-std/=dependencies/forge-std-1.9.4/src/"]
 
 [dependencies]
-forge-std = { version = "1.9.2" }
+forge-std = { version = "1.9.4" }
 
 [soldeer]
 remappings_generate = false
