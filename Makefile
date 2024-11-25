@@ -12,9 +12,9 @@ ADDRESS_ANVIL_1 := 0x70997970C51812dc3A010C7d01b50e0d17dc79C8
 RPC_URL_ANVIL := http://localhost:8545
 
 # ---------- dependencies ----------
-remove :; rm -rf dependencies/ && rm -rf soldeer.lock && rm -rf lib/
-install :; forge soldeer install && forge install
-update:; forge soldeer update && forge update
+uninstall :; rm -rf dependencies/ && rm -rf soldeer.lock
+install :; forge soldeer install
+update:; forge soldeer update
 
 # ---------- build ----------
 build :; forge build
